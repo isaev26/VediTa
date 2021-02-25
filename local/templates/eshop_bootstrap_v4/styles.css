@@ -1,0 +1,8 @@
+table tr.marked{
+    color: #fff;
+    background-color: #63aa28;
+}
+
+table tr.marked a{
+    color: #fff;
+}
