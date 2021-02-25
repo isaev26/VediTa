@@ -17,17 +17,17 @@ $PRICE_TYPE_ID = 1;
     <tbody>
         <?while($ob = $res->GetNextElement()):
             $arFields = $ob->GetFields();?>
-        <tr>
-            <td>
-                <a href="<?= $arFields["DETAIL_PAGE_URL"] ?>"><?= $arFields["NAME"] ?></a>
-            </td>
-            <td>
-        <?$db_res = CPrice::GetList(array(),array("PRODUCT_ID" => $arFields["ID"], 'CATALOG_GROUP_ID' => $PRICE_TYPE_ID));
-        if ($ar_res = $db_res->Fetch()):?>
-            <?=CurrencyFormat($ar_res["PRICE"], $ar_res["CURRENCY"]);?>
-        <?endif?>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <a href="<?= $arFields["DETAIL_PAGE_URL"] ?>"><?= $arFields["NAME"] ?></a>
+                </td>
+                <td>
+            <?$db_res = CPrice::GetList(array(),array("PRODUCT_ID" => $arFields["ID"], 'CATALOG_GROUP_ID' => $PRICE_TYPE_ID));
+            if ($ar_res = $db_res->Fetch()):?>
+                <?=CurrencyFormat($ar_res["PRICE"], $ar_res["CURRENCY"]);?>
+            <?endif?>
+                </td>
+            </tr>
         <?endwhile?>
     </tbody>
 </table>
